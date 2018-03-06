@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cuiyang.projection.controller.MainController">
+    <top>
+        <HBox alignment="CENTER">
+            <Button fx:id="button" mnemonicParsing="false" onMouseClicked="#start" text="启动"/>
+        </HBox>
+    </top>
+    <center>
+       <Canvas fx:id="canvas"/>
+   </center>
+</BorderPane>
