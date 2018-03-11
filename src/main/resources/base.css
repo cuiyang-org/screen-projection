@@ -1,0 +1,13 @@
+* {
+    -fx-background-color: #3C3F41;
+    -fx-text-fill: #ffffff;
+}
+/* button类型选择器设置所有Button的背景色 */
+.button {
+    -fx-cursor: hand;
+    -fx-background-color: #3C3F41;
+}
+/* hover伪类选择器设置鼠标移过Button时的背景色 */
+.button:hover {
+    -fx-background-color: #4B6EAF;
+}

@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cuiyang.projection.controller.MainController">
+<BorderPane prefHeight="600" prefWidth="800" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cuiyang.projection.controller.MainController">
     <top>
-        <HBox alignment="CENTER">
-            <Button fx:id="button" mnemonicParsing="false" onMouseClicked="#start" text="启动"/>
-        </HBox>
+        <VBox>
+            <HBox alignment="CENTER_LEFT">
+                <padding>
+                    <Insets bottom="5" left="5" right="5" top="5" />
+                </padding>
+                <Button fx:id="start" mnemonicParsing="false" onMouseClicked="#start" text="启动" />
+                <Button fx:id="setting" mnemonicParsing="false" text="设置" />
+                <Button fx:id="zoomUp" mnemonicParsing="false" text="放大" />
+                <Button fx:id="zoomDown" mnemonicParsing="false" text="缩小" />
+            </HBox>
+            <Separator />
+        </VBox>
     </top>
     <center>
-       <Canvas fx:id="canvas"/>
-   </center>
+        <Canvas fx:id="canvas" />
+    </center>
+   <bottom>
+       <HBox>
+           <padding>
+               <Insets bottom="5" left="5" right="5" top="5" />
+           </padding>
+           <Label fx:id="bottomInfo" text="未连接" BorderPane.alignment="CENTER_LEFT" />
+       </HBox>
+   </bottom>
 </BorderPane>
