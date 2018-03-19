@@ -18,8 +18,8 @@
                 </padding>
                 <Button fx:id="start" mnemonicParsing="false" onMouseClicked="#start" text="启动" />
                 <Button fx:id="setting" mnemonicParsing="false" text="设置" />
-                <Button fx:id="zoomUp" mnemonicParsing="false" text="放大" />
-                <Button fx:id="zoomDown" mnemonicParsing="false" text="缩小" />
+                <Button fx:id="zoomUp" mnemonicParsing="false" onMouseClicked="#zoomUp" text="放大" />
+                <Button fx:id="zoomDown" mnemonicParsing="false" onMouseClicked="#zoomDown" text="缩小" />
             </HBox>
             <Separator />
         </VBox>
