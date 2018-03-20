@@ -39,6 +39,7 @@ public class MainController implements ScreenListener, Initializable{
     private DeviceManager deviceManager;
 
     private float scale = 0.4f;
+    private int rotate = 0;
 
     public MainController() {
     }
@@ -48,8 +49,7 @@ public class MainController implements ScreenListener, Initializable{
             // 启动
             if (device != null && device.isOnline()) {
                 screenProjection = new ScreenProjection(device, this);
-                screenProjection.setZoom(this.scale);
-                screenProjection.setQuality(80);
+                update(false);
                 screenProjection.start();
                 start.setText("暂停");
             } else {
@@ -86,8 +86,8 @@ public class MainController implements ScreenListener, Initializable{
      * @param mouseEvent MouseEvent
      */
     public void zoomDown(MouseEvent mouseEvent) {
-        this.scale -= 0.1;
-        update();
+        this.scale -= 0.01;
+        update(true);
     }
 
     /**
@@ -95,16 +95,31 @@ public class MainController implements ScreenListener, Initializable{
      * @param mouseEvent MouseEvent
      */
     public void zoomUp(MouseEvent mouseEvent) {
-        this.scale += 0.1;
-        update();
+        this.scale += 0.01;
+        update(true);
+    }
+
+    /**
+     * 旋转
+     */
+    public void rotate() {
+        this.rotate += 90;
+        if (this.rotate >= 360) {
+            this.rotate = 0;
+        }
+        update(true);
     }
 
     /**
      * 更新配置
      */
-    private void update() {
+    private void update(boolean restart) {
         this.screenProjection.setZoom(this.scale);
-        this.screenProjection.restart();
+        this.screenProjection.setRotate(this.rotate);
+        this.screenProjection.setQuality(80);
+        if (restart) {
+            this.screenProjection.restart();
+        }
     }
 
     /**
